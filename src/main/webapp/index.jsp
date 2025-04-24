@@ -1,16 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: PC
-  Date: 4/24/2025
-  Time: 10:54 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Welcome to Student Information System</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+</head>
+<body>
+<h1>Welcome to Student Information System</h1>
+<a href="${pageContext.request.contextPath}/students">View Student List</a>
+</body>
 </html>

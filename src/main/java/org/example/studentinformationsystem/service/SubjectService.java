@@ -1,24 +1,23 @@
 package org.example.studentinformationsystem.service;
 
-import jakarta.inject.Inject;
-import jakarta.persistence.EntityManager;
-import jakarta.transaction.Transactional;
+import org.example.studentinformationsystem.dao.SubjectDao;
 import org.example.studentinformationsystem.entity.Subject;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class SubjectService {
+    private final SubjectDao subjectDao;
 
-    @Inject
-    private EntityManager entityManager;
-
-    @Transactional
-    public Subject getSubjectById(int subjectId) {
-        return entityManager.find(Subject.class, subjectId);
+    public SubjectService() {
+        this.subjectDao = new SubjectDao();
     }
 
-    @Transactional
-    public List<Subject> getAllSubjects() {
-        return entityManager.createQuery("SELECT s FROM Subject s", Subject.class).getResultList();
+    public List<Subject> getAllSubjects() throws SQLException {
+        return subjectDao.getAllSubjects();
+    }
+
+    public Subject getSubjectById(int id) throws SQLException {
+        return subjectDao.getSubjectById(id);
     }
 }

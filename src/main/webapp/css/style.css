@@ -3,58 +3,61 @@ body {
     margin: 20px;
 }
 
-h2 {
-    color: #2c3e50;
+h1, h2 {
+    color: #333;
 }
 
-.student-table {
+table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-.student-table th, .student-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
     text-align: left;
 }
 
-.student-table th {
+th {
     background-color: #f2f2f2;
 }
 
-.student-table tr:nth-child(even) {
-    background-color: #f9f9f9;
+a {
+    color: #007bff;
+    text-decoration: none;
 }
 
-.student-table tr:hover {
-    background-color: #f1f1f1;
+a:hover {
+    text-decoration: underline;
 }
 
-input[type="text"], input[type="number"], select {
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input, select {
     padding: 5px;
-    margin: 5px 0;
     width: 200px;
+    margin-bottom: 10px;
 }
 
 button {
     padding: 8px 15px;
-    background-color: #3498db;
+    background-color: #007bff;
     color: white;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #2980b9;
-}
-
-a {
-    margin-right: 10px;
-    color: #3498db;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
+    background-color: #0056b3;
 }

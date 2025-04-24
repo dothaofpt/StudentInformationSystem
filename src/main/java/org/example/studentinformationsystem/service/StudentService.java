@@ -1,41 +1,35 @@
 package org.example.studentinformationsystem.service;
 
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
+import org.example.studentinformationsystem.dao.StudentDao;
 import org.example.studentinformationsystem.entity.Student;
 
+import java.sql.SQLException;
 import java.util.List;
 
-@ApplicationScoped
 public class StudentService {
-    @PersistenceContext(unitName = "enterpriseApplicationPU")
-    private EntityManager em;
+    private final StudentDao studentDao;
 
-    @Transactional
-    public void addStudent(Student student) {
-        em.persist(student);
+    public StudentService() {
+        this.studentDao = new StudentDao();
     }
 
-    public List<Student> getAllStudents() {
-        return em.createQuery("SELECT s FROM Student s LEFT JOIN FETCH s.studentScores", Student.class).getResultList();
+    public List<Student> getAllStudents() throws SQLException {
+        return studentDao.getAllStudents();
     }
 
-    public Student getStudentById(int id) {
-        return em.find(Student.class, id);
+    public Student getStudentById(int id) throws SQLException {
+        return studentDao.getStudentById(id);
     }
 
-    @Transactional
-    public void updateStudent(Student student) {
-        em.merge(student);
+    public void addStudent(Student student) throws SQLException {
+        studentDao.addStudent(student);
     }
 
-    @Transactional
-    public void deleteStudent(int id) {
-        Student student = getStudentById(id);
-        if (student != null) {
-            em.remove(student);
-        }
+    public void updateStudent(Student student) throws SQLException {
+        studentDao.updateStudent(student);
+    }
+
+    public void deleteStudent(int id) throws SQLException {
+        studentDao.deleteStudent(id);
     }
 }

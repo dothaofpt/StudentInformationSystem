@@ -1,16 +1,20 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: PC
-  Date: 4/24/2025
-  Time: 9:52 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Add Student</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+</head>
+<body>
+<h2>Add New Student</h2>
+<form action="addStudent" method="post">
+    <label>Student Code:</label><br>
+    <input type="text" name="studentCode" required><br>
+    <label>Full Name:</label><br>
+    <input type="text" name="fullName" required><br>
+    <label>Address:</label><br>
+    <input type="text" name="address" required><br>
+    <button type="submit">+ Student</button>
+</form>
+<a href="students">Back to Student List</a>
+</body>
 </html>
